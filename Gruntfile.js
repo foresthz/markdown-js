@@ -73,7 +73,7 @@ module.exports = function(grunt) {
         endFile: "inc/footer-node.js"
       }
     },
-
+    // 用于压缩和合并,如恶化配置压缩的?
     uglify: {
       my_target: {
         options: {
@@ -83,14 +83,16 @@ module.exports = function(grunt) {
           report: "min"
         },
         files: {
+          // 设置了要压缩的js文件
           'dist/markdown.min.js': ['dist/markdown.js']
         }
       }
     }
 
   });
-
+  // 注册任务
   grunt.registerTask('all', ['test', 'build', 'uglify']);
+  // 默认任务
   grunt.registerTask('default', ['all']);
   grunt.registerTask('test', 'Runs all tests and linting', ['node_tap', 'jshint']);
   grunt.loadNpmTasks('grunt-node-tap');
