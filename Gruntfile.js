@@ -73,7 +73,9 @@ module.exports = function(grunt) {
         endFile: "inc/footer-node.js"
       }
     },
+
     // 用于压缩和合并,如恶化配置压缩的?
+    // 可以尝试多个应用案例
     uglify: {
       my_target: {
         options: {
@@ -94,7 +96,9 @@ module.exports = function(grunt) {
   grunt.registerTask('all', ['test', 'build', 'uglify']);
   // 默认任务
   grunt.registerTask('default', ['all']);
+  // 类似于Make中的target
   grunt.registerTask('test', 'Runs all tests and linting', ['node_tap', 'jshint']);
+  // 这个Task是干啥的? npmtask是干啥的?
   grunt.loadNpmTasks('grunt-node-tap');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
